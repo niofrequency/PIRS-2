@@ -1,5 +1,4 @@
 <section id="about" class="relative py-20 md:py-32 bg-white dark:bg-dark-bg transition-colors duration-300 overflow-hidden">
-    <!-- Globe Background Layer -->
     <div class="absolute inset-0 z-0 flex items-center justify-center pointer-events-none opacity-[0.03] dark:opacity-[0.06]">
         <img src="https://upload.wikimedia.org/wikipedia/commons/e/ec/World_map_blank_without_borders.svg" 
              alt="" 
@@ -7,7 +6,6 @@
              style="mask-image: linear-gradient(to bottom, black 20%, transparent 80%); -webkit-mask-image: linear-gradient(to bottom, black 20%, transparent 80%);">
     </div>
 
-    <!-- Main Content -->
     <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
             <div>
@@ -21,7 +19,7 @@
                 <div class="grid grid-cols-2 gap-10 mt-12 pt-12 border-t border-gray-100 dark:border-dark-border">
                     <div>
                         <p class="text-4xl font-bold text-brand-black dark:text-dark-text mb-1">50+</p>
-                        <p class="text-xs font-semibold text-gray-400 uppercase tracking-widest">Goals Project</p>
+                        <p class="text-xs font-semibold text-gray-400 uppercase tracking-widest">Global Projects</p>
                     </div>
                     <div>
                         <p class="text-4xl font-bold text-brand-black dark:text-dark-text mb-1">99<span class="text-2xl text-gray-400">%</span></p>
