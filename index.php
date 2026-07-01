@@ -10,14 +10,14 @@
     
     <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight mb-6 text-brand-black dark:text-dark-text fade-in">
-            Global Logistics. <br><span class="text-brand-blue dark:text-dark-accent">Redefined.</span>
+            Intelligent Movement<br><span class="text-gray-500 dark:text-dark-textSecondary">of Goods.</span>
         </h1>
         <p class="mt-4 text-xl md:text-2xl text-gray-500 dark:text-dark-textSecondary font-light max-w-3xl mx-auto mb-10 fade-in delay-100">
-            End-to-end supply chain solutions, advanced reefer diagnostics, and unparalleled global connectivity.
+            Redefining the standard in Reefer Container Solutions. We provide end-to-end logistics precision designed for modern business needs.
         </p>
         <div class="flex flex-col sm:flex-row justify-center gap-4 fade-in delay-200">
-            <a href="services.php" class="px-8 py-4 rounded-full bg-brand-blue text-white font-semibold hover:bg-blue-700 transition-all shadow-lg text-lg">Explore Services</a>
-            <a href="contact.php" class="px-8 py-4 rounded-full bg-white dark:bg-dark-surface text-brand-black dark:text-dark-text font-semibold hover:bg-gray-50 dark:hover:bg-gray-800 transition-all border border-gray-200 dark:border-dark-border shadow-sm text-lg">Contact Us</a>
+            <a href="services.php" class="px-8 py-4 rounded-full bg-brand-black text-white font-semibold hover:bg-gray-800 transition-all shadow-lg text-lg">Explore Services</a>
+            <a href="about.php" class="px-8 py-4 rounded-full bg-white text-brand-black font-semibold hover:bg-gray-50 transition-all border border-gray-200 shadow-sm text-lg">Learn More</a>
         </div>
     </div>
 </header>
@@ -25,21 +25,4 @@
 <section id="about">
     <?php require_once 'includes/about.php'; ?>
 </section>
-
-<section id="services">
-    <?php require_once 'includes/services.php'; ?>
-</section>
-
-<section id="process">
-    <?php require_once 'includes/process.php'; ?>
-</section>
-
-<section id="technology">
-    <?php require_once 'includes/technology.php'; ?>
-</section>
-
-<section id="contact-section">
-    <?php require_once 'includes/contact.php'; ?>
-</section>
-
 <?php require_once 'includes/footer.php'; ?>
