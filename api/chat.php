@@ -2,13 +2,13 @@
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     header('Content-Type: application/json');
     
-    // DIRECT API KEY INSERTION
-    // Replace this string with your new regenerated key from x.ai
-    $apiKey = 'xai-9kDUNn1i7KqJqtT82je2TopovOBm8Do0IG4QuXFsqS14Czmb1WUDwGllqObroUgmbE67rQMTnNsE60Op';
+    // BUG FIX: Secure API Key handling using environment variables
+    // Never hardcode API keys in source control. Set this in your server environment or .env file.
+    $apiKey = getenv('XAI_API_KEY');
     
     if (empty($apiKey)) {
         http_response_code(500);
-        echo json_encode(['error' => 'API Key not configured.']);
+        echo json_encode(['error' => 'API Key not configured on the server.']);
         exit;
     } 
 
@@ -23,7 +23,7 @@ Your responsibilities:
 If you don't know something, advise the user to contact PIRS support at info@pirs.co.id or +62 81359 646964.";
 
     $payload = [
-        "model" => "grok-3",
+        "model" => "grok-3", // Or the specific model endpoint assigned
         "messages" => array_merge([["role" => "system", "content" => $systemPrompt]], $messages),
         "temperature" => 0.2
     ];
@@ -39,7 +39,22 @@ If you don't know something, advise the user to contact PIRS support at info@pir
 
     $response = curl_exec($ch);
     $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+    
+    if (curl_errno($ch)) {
+        http_response_code(500);
+        echo json_encode(['error' => 'cURL Error: ' . curl_error($ch)]);
+        curl_close($ch);
+        exit;
+    }
     curl_close($ch);
+
+    // Ensure proper format mapping
+    $responseData = json_decode($response, true);
+    if (!$responseData || !isset($responseData['choices'])) {
+        http_response_code(502);
+        echo json_encode(['error' => 'Invalid or unexpected format received from upstream API.']);
+        exit;
+    }
 
     http_response_code($httpCode);
     echo $response;
