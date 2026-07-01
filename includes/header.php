@@ -78,6 +78,7 @@
                 
             <div class="flex items-center space-x-4 md:space-x-10">
                 <div class="hidden lg:flex items-center space-x-10">
+                    <a href="index.php" class="text-base font-medium text-gray-500 dark:text-dark-textSecondary hover:text-black dark:hover:text-dark-text transition-colors">Home</a>
                     <a href="about.php" class="text-base font-medium text-gray-500 dark:text-dark-textSecondary hover:text-black dark:hover:text-dark-text transition-colors">About</a>
                     <a href="services.php" class="text-base font-medium text-gray-500 dark:text-dark-textSecondary hover:text-black dark:hover:text-dark-text transition-colors">Services</a>
                     <a href="process.php" class="text-base font-medium text-gray-500 dark:text-dark-textSecondary hover:text-black dark:hover:text-dark-text transition-colors">Process</a>
@@ -100,6 +101,7 @@
         
         <div id="mobile-menu" class="hidden lg:hidden absolute top-24 left-0 w-full bg-white dark:bg-dark-bg border-b border-gray-100 dark:border-dark-border shadow-lg z-50">
             <div class="flex flex-col px-4 pt-2 pb-6 space-y-4">
+                <a href="index.php" class="text-base font-medium text-gray-500 dark:text-dark-textSecondary hover:text-black dark:hover:text-dark-text transition-colors">Home</a>
                 <a href="about.php" class="text-base font-medium text-gray-500 dark:text-dark-textSecondary hover:text-black dark:hover:text-dark-text p-2">About</a>
                 <a href="services.php" class="text-base font-medium text-gray-500 dark:text-dark-textSecondary hover:text-black dark:hover:text-dark-text p-2">Services</a>
                 <a href="process.php" class="text-base font-medium text-gray-500 dark:text-dark-textSecondary hover:text-black dark:hover:text-dark-text p-2">Process</a>
