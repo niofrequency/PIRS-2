@@ -19,25 +19,8 @@
                 extend: {
                     fontFamily: { sans: ['Inter', 'sans-serif'] },
                     colors: {
-                        brand: { 
-                            blue: '#0066cc', 
-                            red: '#cc0033', 
-                            black: '#0a0a0a', 
-                            gray: '#f5f5f7' 
-                        },
-                        dark: {
-                            bg: '#0a0a0f',        
-                            card: '#111118',      
-                            surface: '#1a1a22',   
-                            border: '#27272f',
-                            text: '#e5e5e8',
-                            textSecondary: '#a3a3b0',
-                            accent: '#3b82f6'     
-                        }
-                    },
-                    boxShadow: {
-                        'premium': '0 10px 40px -10px rgba(0,0,0,0.08)',
-                        'floating': '0 20px 40px -10px rgba(0,0,0,0.15)',
+                        brand: { blue: '#0066cc', red: '#cc0033', black: '#0a0a0a', gray: '#f5f5f7' },
+                        dark: { bg: '#0a0a0f', card: '#111118', surface: '#1a1a22', border: '#27272f', text: '#e5e5e8', textSecondary: '#a3a3b0', accent: '#3b82f6' }
                     }
                 }
             }
@@ -50,6 +33,16 @@
             document.documentElement.classList.remove('dark');
             localStorage.setItem('color-theme', 'light');
         }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            if(mobileMenuBtn && mobileMenu) {
+                mobileMenuBtn.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden');
+                });
+            }
+        });
     </script>
     <style>
         body { text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; }
@@ -61,8 +54,6 @@
         .custom-scroll::-webkit-scrollbar-track { background: transparent; }
         .custom-scroll::-webkit-scrollbar-thumb { background: #e5e7eb; border-radius: 4px; }
         .dark .custom-scroll::-webkit-scrollbar-thumb { background: #27272f; }
-        .custom-scroll:hover::-webkit-scrollbar-thumb { background: #d1d5db; }
-        .dark .custom-scroll:hover::-webkit-scrollbar-thumb { background: #a3a3b0; }
         .typing-indicator span { display: inline-block; width: 4px; height: 4px; background-color: #111827; border-radius: 50%; animation: typing 1.4s infinite ease-in-out both; margin: 0 1px; }
         .dark .typing-indicator span { background-color: #e5e5e8; }
         .typing-indicator span:nth-child(1) { animation-delay: -0.32s; }
@@ -77,8 +68,7 @@
 <body class="font-sans text-gray-900 dark:text-dark-text bg-white dark:bg-dark-bg transition-colors duration-300 selection:bg-brand-blue selection:text-white flex flex-col min-h-screen">
 
 <nav class="bg-white/80 dark:bg-dark-bg/90 backdrop-blur-xl border-b border-gray-100 dark:border-dark-border fixed w-full z-40 top-0 transition-all duration-300">
-    <!-- Removed mx-auto to stop centering and kept tight padding -->
-    <div class="w-full px-4 md:px-8">
+    <div class="w-full px-4 md:px-8 relative">
         <div class="flex justify-between h-24 items-center">
             <div class="flex items-center">
                 <a href="index.php">
@@ -101,14 +91,25 @@
                         <svg id="theme-toggle-light-icon" class="hidden w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707-.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
                     </button>
                     <a href="contact.php" class="hidden md:inline-flex text-base font-medium px-8 py-3 rounded-full bg-brand-black dark:bg-dark-text text-white dark:text-dark-bg hover:bg-gray-800 dark:hover:bg-gray-300 transition-all">Contact Us</a>
+                    <button id="mobile-menu-btn" class="lg:hidden text-gray-500 dark:text-dark-textSecondary hover:bg-gray-100 dark:hover:bg-dark-surface focus:outline-none rounded-lg p-3 transition-colors">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                    </button>
                 </div>
+            </div>
+        </div>
+        
+        <div id="mobile-menu" class="hidden lg:hidden absolute top-24 left-0 w-full bg-white dark:bg-dark-bg border-b border-gray-100 dark:border-dark-border shadow-lg z-50">
+            <div class="flex flex-col px-4 pt-2 pb-6 space-y-4">
+                <a href="about.php" class="text-base font-medium text-gray-500 dark:text-dark-textSecondary hover:text-black dark:hover:text-dark-text p-2">About</a>
+                <a href="services.php" class="text-base font-medium text-gray-500 dark:text-dark-textSecondary hover:text-black dark:hover:text-dark-text p-2">Services</a>
+                <a href="process.php" class="text-base font-medium text-gray-500 dark:text-dark-textSecondary hover:text-black dark:hover:text-dark-text p-2">Process</a>
+                <a href="technology.php" class="text-base font-medium text-gray-500 dark:text-dark-textSecondary hover:text-black dark:hover:text-dark-text p-2">Technology</a>
+                <a href="network.php" class="text-base font-medium text-gray-500 dark:text-dark-textSecondary hover:text-black dark:hover:text-dark-text p-2">Network</a>
+                <a href="contact.php" class="text-base font-medium text-brand-blue dark:text-dark-accent p-2">Contact Us</a>
             </div>
         </div>
     </div>
 </nav>
     
-    <!-- Spacer so page content doesn't hide under the fixed nav -->
     <div class="pt-24"></div>
-    
-    <!-- Main Content Wrapper -->
     <main class="flex-grow flex flex-col justify-center">
